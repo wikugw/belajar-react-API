@@ -1,39 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { Fragment } from "react";
+import Counter from "./Counter";
 
 class CardProduct extends Component {
-  state = {
-    order: 4,
-  };
-
-  handleCounterChange = (newValue) => {
-    this.props.onCounterChange(newValue);
-  };
-
-  handlePlus = () => {
-    this.setState(
-      {
-        order: this.state.order + 1,
-      },
-      () => {
-        this.handleCounterChange(this.state.order);
-      }
-    );
-  };
-
-  handleMinus = () => {
-    if (this.state.order > 0) {
-      this.setState(
-        {
-          order: this.state.order - 1,
-        },
-        () => {
-          this.handleCounterChange(this.state.order);
-        }
-      );
-    }
-  };
   render() {
     return (
       <Fragment>
@@ -46,15 +16,10 @@ class CardProduct extends Component {
           </div>
           <div className="product-title">Ratatouille</div>
           <div className="product-price">Rp. 410000</div>
-          <div className="counter">
-            <button className="minus" onClick={this.handleMinus}>
-              -
-            </button>
-            <input type="text" value={this.state.order} />
-            <button className="plus" onClick={this.handlePlus}>
-              +
-            </button>
-          </div>
+
+          <Counter
+            onCounterChange={(value) => this.props.onCounterChange(value)}
+          />
         </div>
       </Fragment>
     );

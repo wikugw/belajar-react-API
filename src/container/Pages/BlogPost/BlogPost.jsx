@@ -97,6 +97,11 @@ class BlogPost extends Component {
       this.postDataToAPI();
     }
   };
+
+  handleDetail = (id) => {
+    this.props.history.push(`/detail/${id}`);
+  };
+
   componentDidMount() {
     this.getPostAPI();
   }
@@ -135,6 +140,7 @@ class BlogPost extends Component {
               data={post}
               remove={this.handleRemove}
               update={this.handleUpdate}
+              goDetail={this.handleDetail}
             />
           );
         })}

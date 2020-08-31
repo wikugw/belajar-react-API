@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Product from "../Pages/Product/Product";
 import LifeCycleComponent from "../Pages/LifeCycleComponent/LifeCycleComponent";
 import BlogPost from "../Pages/BlogPost/BlogPost";
+import DetailPost from "../Pages/BlogPost/DetailPost/DetailPost";
 import YoutubeComponentPage from "../Pages/YoutubeComponent/YoutubeComponentPage";
 // import style
 import "./Home.css";
@@ -21,6 +22,7 @@ class Home extends Component {
             <Link to="/youtube">Youtube</Link>
           </div>
           <Route path="/" exact component={BlogPost}></Route>
+          <Route path="/detail/:postID" exact component={DetailPost}></Route>
           <Route path="/product" component={Product}></Route>
           <Route path="/lifecycle" component={LifeCycleComponent}></Route>
           <Route path="/youtube" component={YoutubeComponentPage}></Route>
