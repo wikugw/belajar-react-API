@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Product.css";
 import { Fragment } from "react";
-import CardProduct from "../CardProduct/CardProduct";
+import CardProduct from "./CardProduct/CardProduct";
 
 class Product extends Component {
   state = {
@@ -16,6 +16,8 @@ class Product extends Component {
   render() {
     return (
       <Fragment>
+        <p>Halaman Product</p>
+        <hr />
         <div className="header">
           <div className="logo">
             <img

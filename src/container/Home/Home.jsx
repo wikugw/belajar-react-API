@@ -1,46 +1,31 @@
-import React, { Component } from "react";
-// import YoutubeComponent from "../../components/YoutubeComponent/YoutubeComponent";
-// import Product from "../Product/Product";
-// import LifeCycleComponent from "../../components/LifeCycleComponent/LifeCycleComponent";
-import BlogPost from "../BlogPost/BlogPost";
+// import library
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import pages
+import Product from "../Pages/Product/Product";
+import LifeCycleComponent from "../Pages/LifeCycleComponent/LifeCycleComponent";
+import BlogPost from "../Pages/BlogPost/BlogPost";
+import YoutubeComponentPage from "../Pages/YoutubeComponent/YoutubeComponentPage";
+// import style
+import "./Home.css";
 
 class Home extends Component {
   render() {
     return (
-      <div>
-        {/* <p>Youtube Components</p>
-        <hr />
-        <YoutubeComponent
-          time="7.12"
-          title="Tutorial unboxing nasi kotak part 1"
-          desc="500x ditonton. 2 hari lalu"
-        />
-        <YoutubeComponent
-          time="8.3"
-          title="Tutorial unboxing nasi kotak part 2"
-          desc="5x ditonton. 1 hari lalu"
-        />
-        <YoutubeComponent
-          time="10.5"
-          title="Tutorial unboxing nasi kotak part 3"
-          desc="500789x ditonton. 2 bulan lalu"
-        />
-        <YoutubeComponent
-          time="2.00"
-          title="Tutorial unboxing nasi kotak part 4"
-          desc="0x ditonton. 1 hari lalu"
-        />
-        <YoutubeComponent /> */}
-        {/* <p>Couinter</p> */}
-        {/* <hr />
-        <Product /> */}
-        {/* <p>LifeCycle</p>
-        <hr />
-        <LifeCycleComponent /> */}
-        <p>Blog</p>
-        <hr />
-        <BlogPost />
-      </div>
+      <Router>
+        <Fragment>
+          <div className="navigation">
+            <Link to="/">BlogPost</Link>
+            <Link to="/product">Product</Link>
+            <Link to="/lifecycle">lifecycle</Link>
+            <Link to="/youtube">Youtube</Link>
+          </div>
+          <Route path="/" exact component={BlogPost}></Route>
+          <Route path="/product" component={Product}></Route>
+          <Route path="/lifecycle" component={LifeCycleComponent}></Route>
+          <Route path="/youtube" component={YoutubeComponentPage}></Route>
+        </Fragment>
+      </Router>
     );
   }
 }
